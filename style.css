@@ -94,16 +94,74 @@ transition: transform 0.3s, box-shadow 0.3s;
 transform: translateY(-10px);
 box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
-/* ===== FORMULAIRE ===== */
-.contact form {
-max-width: 400px;
-margin: auto;
+/* WhatsApp flottants */
+.whatsapp-float {
+position: fixed;
+bottom: 25px;
+right: 25px;
+width: 60px;
+height: 60px;
+background: linear-gradient(135deg, #25D366, #1ebe5d);
+color: white;
+border-radius: 50%;
+font-size: 28px;
 display: flex;
-flex-direction: column;
+align-items: center;
+justify-content: center;
+text-decoration: none;
+box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+z-index: 1000;
+animation: pulse 2s infinite;
+transition: transform 0.3s ease;
 }
-.contact input, .contact textarea {
-margin-bottom: 15px;
-padding: 10px;
+.whatsapp-float-2 {
+bottom: 100px; /* décalage de la deuxième icône WhatsApp */
+}
+/* Bouton Email flottant */
+.email-float {
+position: fixed;
+bottom: 175px; /* au-dessus des deux WhatsApp */
+right: 25px;
+width: 60px;
+height: 60px;
+background: linear-gradient(135deg, #0072ff, #00c6ff);
+color: white;
+border-radius: 50%;
+font-size: 28px;
+display: flex;
+align-items: center;
+justify-content: center;
+text-decoration: none;
+box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+z-index: 1000;
+animation: pulse 2s infinite;
+transition: transform 0.3s ease;
+}
+/* Hover animation */
+.whatsapp-float:hover,
+.email-float:hover {
+transform: scale(1.15) rotate(5deg);
+}
+/* Pulse animation */
+@keyframes pulse {
+0% { box-shadow: 0 0 0 0 rgba(0,0,0,0.4); }
+70% { box-shadow: 0 0 0 15px rgba(0,0,0,0); }
+100% { box-shadow: 0 0 0 0 rgba(0,0,0,0); }
+}
+/* Tooltip automatique via title */
+.whatsapp-float[title]:hover::after, .email-float[title]:hover::after {
+content: attr(title);
+position: absolute;
+bottom: 70px;
+right: 0;
+background: #111;
+color: #fff;
+padding: 6px 12px;
+border-radius: 6px;
+font-size: 0.9rem;
+white-space: nowrap;
+opacity: 1;
+transition: opacity 0.3s ease;
 }
 /* ===== FOOTER ===== */
 footer {
