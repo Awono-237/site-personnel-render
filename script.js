@@ -27,4 +27,5 @@ section.classList.add("show");
 }
 });
 }
+
 window.addEventListener("scroll", revealOnScroll)
